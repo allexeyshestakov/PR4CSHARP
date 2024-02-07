@@ -24,7 +24,8 @@
         <TextBox x:Name="inputLogin" Grid.Row="1" Grid.Column="1" Height="35" VerticalAlignment="Top" Margin="0,29,0,0"/>
 
         <Label Grid.Row="1" Content="Пароль:" Margin="0,62,0,0" Grid.Column="1"/>
-        <TextBox x:Name="inputPass" Grid.Row="1" Height="35" VerticalAlignment="Center" Grid.Column="1"/>
+        <PasswordBox x:Name="inputPass" Visibility="Visible" Grid.Row="1" Height="35" VerticalAlignment="Center" Grid.Column="1" />
+        <CheckBox x:Name="showbtn" Content="" Grid.Column="2" Grid.Row="1" Width="60" Height="30"   ></CheckBox>
         <Label Grid.Row="1" Grid.Column="1" Content="Нет аккаунта?" Margin="0,142,0,0" Foreground="#FF888888"/>
 
         <TextBlock x:Name="imageCapcha" Grid.Column="1" Grid.Row="2" Height="45" Width="270" VerticalAlignment="Top" Visibility="Hidden" FontSize="22" Background="#FFB1A4A6" Foreground="#FF846060" FontStretch="Expanded" TextAlignment="Center"/>

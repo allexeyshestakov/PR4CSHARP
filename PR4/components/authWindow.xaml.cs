@@ -26,48 +26,59 @@ namespace PR4.components
             InitializeComponent();
             
         }
+        SportDataBaseEn SportDataBaseEn = new SportDataBaseEn();
         int invalidPassword = 0;
-        
+
+
         private void auth_Click(object sender, RoutedEventArgs e)
         {
             string login = inputLogin.Text;
-            string password = inputPass.Text;
+            string password = inputPass.Password;
             string capcha = inputCapcha.Text;
-            string createCapcha = "";
+            string createcapcha = "";
 
-            if (checkUser(login, password) && capcha == createCapcha)
+            if (CheckUser(login, password) && capcha == createcapcha)
             {
-               
-                
+                // Successful login, do something
             }
             else
             {
                 invalidPassword++;
                 if (invalidPassword == 3)
                 {
-                    createCapcha = createCAPCHA();
-                    imageCapcha.Text = createCapcha;
+                    createcapcha = createCAPCHA();
+                    imageCapcha.Text = createcapcha;
                     inputCapcha.Visibility = Visibility.Visible;
                     imageCapcha.Visibility = Visibility.Visible;
                 }
             }
-            
-
         }
 
-        public Boolean checkUser(string login, string password)
+        public bool CheckUser(string login, string password)
         {
-            //Поиск пользователя по логину
-            //MessageBox.Show("Пользователь не найден");
-            //return false;
+            using (var context = new SportDataBaseEn())
+            {
+                var employee = context.Employees.FirstOrDefault(e => e.login == login);
 
-            //Если нашли, то подставляем пароль
-            //MessageBox.Show("Неправильный логин или пароль!");
-            //return false;
-            //
-            //Если все хорошо перебрасываем куда-нибудь
-            return true;
+                if (employee == null)
+                {
+                    MessageBox.Show("Такой пользователь не найден");
+                    return false;
+                }
+
+                if (employee.password != password)
+                {
+                    MessageBox.Show("Неправильный логин или пароль");
+                    return false;
+                }
+
+                // Successful login
+                // Do any additional checks or actions here
+
+                return true;
+            }
         }
+
 
         private string createCAPCHA()
         {
@@ -85,5 +96,8 @@ namespace PR4.components
 
 
         }
+        
+
+        
     }
 }
