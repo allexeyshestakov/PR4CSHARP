@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -67,7 +68,10 @@
     <Compile Include="AllPages\ListProductPage.xaml.cs">
       <DependentUpon>ListProductPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BasketWindow.xaml.cs">
+    <Compile Include="components\authWindow.xaml.cs">
+      <DependentUpon>authWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="components\BasketWindow.xaml.cs">
       <DependentUpon>BasketWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Client.cs">
@@ -113,7 +117,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BasketWindow.xaml">
+    <Page Include="components\authWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="components\BasketWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

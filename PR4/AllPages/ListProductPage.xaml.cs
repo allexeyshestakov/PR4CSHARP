@@ -44,7 +44,7 @@ namespace PR4.AllPages
         {
             SportDataBaseEn sportDataBaseEn = new SportDataBaseEn();
             int index = ListProduct.SelectedIndex;
-
+            
             showDetails.Visibility = Visibility.Visible;
 
         }

@@ -43,5 +43,11 @@ namespace PR4
         {
 
         }
+
+        private void authBtn_Click(object sender, RoutedEventArgs e)
+        {
+            components.authWindow authWindow = new components.authWindow();
+            authWindow.Show();
+        }
     }
 }
